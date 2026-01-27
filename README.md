@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Fintech App — Next.js + Tailwind + shadcn/ui. Ver **[docs/README.md](docs/README.md)** para como rodar, scripts e design system.
 
 ## Getting Started
 

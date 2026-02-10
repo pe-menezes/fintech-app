@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Check, CreditCard } from "lucide-react";
 import { Card } from "@/components/shared/card";
 
-export default function AporteRealizadoPage() {
+function AporteRealizadoContent() {
   const searchParams = useSearchParams();
   const metodo = searchParams.get("metodo");
 
@@ -123,5 +123,23 @@ export default function AporteRealizadoPage() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function AporteRealizadoPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-background">
+          <header className="w-full bg-[var(--color-brand)] px-4 pb-4 pt-[calc(env(safe-area-inset-top)+12px)]">
+            <div className="flex items-center justify-center">
+              <h1 className="text-lg font-semibold text-white">Aporte Realizado!</h1>
+            </div>
+          </header>
+        </div>
+      }
+    >
+      <AporteRealizadoContent />
+    </Suspense>
   );
 }

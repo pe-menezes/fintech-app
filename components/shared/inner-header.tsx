@@ -31,7 +31,7 @@ export function InnerHeader({ title, onBack }: Props) {
           <ArrowLeft className="h-6 w-6 text-white" />
         </button>
         <h1 className="text-lg font-semibold text-white">{title}</h1>
-        <div className="w-6" />
+        <div className="min-w-[44px]" />
       </div>
     </header>
   );

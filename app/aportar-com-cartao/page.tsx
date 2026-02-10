@@ -14,7 +14,7 @@ export default function AportarComCartaoPage() {
         {/* Card Valor do Aporte */}
         <button
           type="button"
-          className="w-full cursor-pointer text-left"
+          className="min-h-[44px] w-full cursor-pointer text-left"
           aria-label="Selecionar valor do aporte"
         >
           <Card>
@@ -32,13 +32,13 @@ export default function AportarComCartaoPage() {
           <div className="flex gap-0">
             <button
               type="button"
-              className="flex-1 py-2 text-center text-sm text-muted-foreground"
+              className="flex-1 min-h-[44px] py-2 text-center text-sm text-muted-foreground"
             >
               À vista
             </button>
             <button
               type="button"
-              className="flex-1 border-b-2 border-[var(--color-brand)] py-2 text-center text-sm font-medium"
+              className="flex-1 min-h-[44px] border-b-2 border-[var(--color-brand)] py-2 text-center text-sm font-medium"
             >
               Parcelado
             </button>
@@ -73,7 +73,7 @@ export default function AportarComCartaoPage() {
         style={{ paddingBottom: "max(16px, env(safe-area-inset-bottom))" }}
       >
         <Link
-          href="/aproximar-cartao"
+          href="/escolher-metodo"
           className="flex min-h-[44px] w-full items-center justify-center rounded-2xl bg-[var(--color-brand)] py-4 font-semibold text-white"
         >
           Continuar

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   BarChart2,
   Calculator,
@@ -8,7 +9,7 @@ import {
   FileText,
   HelpCircle,
   LayoutGrid,
-  Link,
+  Link as LinkIcon,
   Package,
   Percent,
   Repeat,
@@ -40,16 +41,17 @@ function ModuleTile({
   label,
   icon: Icon,
   badge,
+  href,
 }: {
   label: string;
   icon: React.ElementType;
   badge?: "Novo" | "Ofertas";
+  href?: string;
 }) {
-  return (
-    <button
-      type="button"
-      className="relative h-[108px] w-full rounded-2xl border border-black/5 bg-white p-3 shadow-sm"
-    >
+  const className =
+    "relative block h-[108px] w-full rounded-2xl border border-black/5 bg-white p-3 shadow-sm";
+  const content = (
+    <>
       {badge ? <BadgePill>{badge}</BadgePill> : null}
       <div className="flex h-full flex-col items-center justify-between">
         <Icon
@@ -60,17 +62,26 @@ function ModuleTile({
           {label}
         </span>
       </div>
+    </>
+  );
+  if (href) {
+    return <Link href={href} className={className}>{content}</Link>;
+  }
+  return (
+    <button type="button" className={className}>
+      {content}
     </button>
   );
 }
 
 export function ModulesGrid() {
   const modules = [
+    { label: "Aportar com Cartão", icon: CreditCard, badge: "Novo" as const, href: "/aportar-com-cartao" },
     { label: "Taxas e tarifas", icon: Percent },
     { label: "Simulador de vendas", icon: Calculator },
     { label: "Criação de Boletos", icon: FileText },
     { label: "Venda por Assinatura", icon: Repeat, badge: "Novo" as const },
-    { label: "Link de Pagamento", icon: Link },
+    { label: "Link de Pagamento", icon: LinkIcon },
     { label: "Tap to Pay no iPhone", icon: Smartphone },
     { label: "Venda Digitada", icon: Type },
     { label: "Cartões", icon: CreditCard },
@@ -86,12 +97,13 @@ export function ModulesGrid() {
   ];
   return (
     <div className="grid grid-cols-3 gap-3">
-      {modules.map(({ label, icon, badge }) => (
+      {modules.map(({ label, icon, badge, href }) => (
         <ModuleTile
           key={label}
           label={label}
           icon={icon}
           badge={badge}
+          href={href}
         />
       ))}
     </div>

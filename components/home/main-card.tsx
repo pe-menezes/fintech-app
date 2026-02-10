@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ChevronRight, CreditCard, Store, Wallet } from "lucide-react";
 import { Card } from "./card";
 import { PixIcon } from "./pix-icon";
@@ -22,16 +21,6 @@ export function MainCard() {
         </div>
         <ChevronRight className="h-6 w-6 shrink-0 text-muted-foreground" />
       </div>
-      <Link
-        href="/aportar-com-cartao"
-        className="flex min-h-[44px] items-center justify-between gap-3 rounded-2xl bg-[#EFEFEF] p-3"
-      >
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white">
-          <CreditCard className="h-5 w-5 text-[var(--color-brand)]" />
-        </span>
-        <span className="font-medium text-sm">Aportar com Cartão</span>
-        <ChevronRight className="h-5 w-5 shrink-0 text-muted-foreground" />
-      </Link>
       {/* B) Linha Reserva */}
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">

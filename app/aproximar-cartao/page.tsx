@@ -9,11 +9,11 @@ export default function AproximarCartaoPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const t = setTimeout(() => router.replace("/aporte-realizado"), 3000);
+    const t = setTimeout(() => router.replace("/aporte-realizado?metodo=tap"), 3000);
     return () => clearTimeout(t);
   }, [router]);
 
-  const goToSuccess = () => router.replace("/aporte-realizado");
+  const goToSuccess = () => router.replace("/aporte-realizado?metodo=tap");
 
   return (
     <div className="min-h-screen bg-background">

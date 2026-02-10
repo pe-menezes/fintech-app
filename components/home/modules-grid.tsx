@@ -76,7 +76,7 @@ function ModuleTile({
 
 export function ModulesGrid() {
   const modules = [
-    { label: "Aportar com Cartão", icon: CreditCard, badge: "Novo" as const, href: "/aportar-com-cartao" },
+    { label: "Adicionar Dinheiro", icon: CreditCard, badge: "Novo" as const, href: "/aportar-com-cartao" },
     { label: "Taxas e tarifas", icon: Percent },
     { label: "Simulador de vendas", icon: Calculator },
     { label: "Criação de Boletos", icon: FileText },

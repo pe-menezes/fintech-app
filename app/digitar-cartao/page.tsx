@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { CreditCard } from "lucide-react";
 import { Card } from "@/components/shared/card";
 import { InnerHeader } from "@/components/shared/inner-header";
+import { addCard } from "@/lib/mock-cards";
 
 const inputClasses =
   "w-full rounded-xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-[var(--color-brand)] focus:ring-1 focus:ring-[var(--color-brand)] min-h-[44px]";
@@ -147,7 +148,18 @@ export default function DigitarCartaoPage() {
       >
         <button
           type="button"
-          onClick={() => router.replace("/aporte-realizado?metodo=digitado")}
+          onClick={() => {
+            if (saveCard && cardNumber.replace(/\s/g, "").length >= 4) {
+              addCard({
+                brand: "Visa",
+                lastFour: cardNumber.replace(/\s/g, "").slice(-4),
+                holderName: name || "Titular",
+                expiryMonth: parseInt(validity.split("/")[0], 10) || 12,
+                expiryYear: parseInt(validity.split("/")[1], 10) || 26,
+              });
+            }
+            router.replace("/aporte-realizado?metodo=digitado");
+          }}
           className="flex min-h-[44px] w-full items-center justify-center rounded-2xl bg-[var(--color-brand)] py-4 font-semibold text-white"
         >
           Pagar R$ 1.090,00

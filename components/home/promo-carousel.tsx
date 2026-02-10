@@ -10,8 +10,8 @@ type PromoCarouselProps = {
 export function PromoCarousel({ scrollbarHide }: PromoCarouselProps) {
   const promos = [
     {
-      title: "Aportar com Cartão",
-      subtitle: "Adicione saldo via cartão de crédito — rápido e parcelado.",
+      title: "Adicionar Dinheiro",
+      subtitle: "Use seu cartão de crédito e parcele em até 12x.",
       icon: Wallet,
       href: "/aportar-com-cartao",
     },

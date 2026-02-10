@@ -56,7 +56,11 @@ export default function EscolherMetodoPage() {
                 ) : (
                   <button
                     type="button"
-                    onClick={() => router.push("/aproximar-cartao")}
+                    onClick={() =>
+                      router.push(
+                        `/cvv-cartao?brand=${encodeURIComponent(card.brand)}&lastFour=${encodeURIComponent(card.lastFour)}&holder=${encodeURIComponent(card.holderName)}`
+                      )
+                    }
                     className="flex min-h-[44px] w-full items-center gap-3 text-left"
                   >
                     <CardBrandIcon brand={card.brand} />

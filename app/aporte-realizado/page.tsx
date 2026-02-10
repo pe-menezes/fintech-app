@@ -34,7 +34,9 @@ function AporteRealizadoContent() {
       ? "Pagamento via aproximação (Tap)"
       : metodo === "digitado"
         ? "Pagamento via cartão digitado"
-        : null;
+        : metodo === "cartao_salvo"
+          ? "Pagamento via cartão salvo"
+          : null;
 
   return (
     <div className="min-h-screen bg-background">

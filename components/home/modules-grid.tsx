@@ -30,7 +30,7 @@ function BadgePill({
 }) {
   return (
     <span
-      className={`absolute right-2 top-2 rounded-full bg-[#2F6BFF] px-2 py-[2px] text-[10px] font-semibold text-white ${className}`}
+      className={`absolute rounded-full bg-[#2F6BFF] px-2 py-[2px] text-[10px] font-semibold text-white ${className}`}
     >
       {children}
     </span>
@@ -49,20 +49,22 @@ function ModuleTile({
   href?: string;
 }) {
   const className =
-    "relative block h-[108px] w-full rounded-2xl border border-black/5 bg-white p-3 shadow-sm";
+    "block w-full rounded-2xl border border-black/5 bg-white px-3 py-4 shadow-sm";
   const content = (
-    <>
-      {badge ? <BadgePill>{badge}</BadgePill> : null}
-      <div className="flex h-full flex-col items-center justify-between">
+    <div className="flex flex-col items-center gap-2">
+      <div className="relative shrink-0">
         <Icon
-          className="mt-0.5 h-[22px] w-[22px] shrink-0 text-[var(--color-brand)]"
+          className="h-[22px] w-[22px] text-[var(--color-brand)]"
           strokeWidth={2}
         />
-        <span className="line-clamp-2 pb-0.5 text-center text-sm leading-tight">
-          {label}
-        </span>
+        {badge ? (
+          <BadgePill className="-right-1 -top-1 z-10">{badge}</BadgePill>
+        ) : null}
       </div>
-    </>
+      <span className="line-clamp-2 text-center text-sm leading-tight">
+        {label}
+      </span>
+    </div>
   );
   if (href) {
     return <Link href={href} className={className}>{content}</Link>;

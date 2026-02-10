@@ -11,19 +11,19 @@ export function BottomNav() {
   ];
   return (
     <nav
-      className="fixed bottom-0 left-1/2 z-10 flex w-full max-w-[430px] -translate-x-1/2 border-t border-border bg-card px-2 pt-2"
-      style={{ paddingBottom: "max(8px, env(safe-area-inset-bottom))" }}
+      className="fixed bottom-0 left-1/2 z-10 flex w-full max-w-[430px] -translate-x-1/2 border-t border-border bg-card px-2 pt-3"
+      style={{ paddingBottom: "max(20px, env(safe-area-inset-bottom))" }}
     >
       <div className="flex w-full justify-around">
         {items.map(({ label, icon: Icon, active }) => (
           <button
             key={label}
             type="button"
-            className={`flex min-h-[44px] flex-col items-center justify-center gap-0.5 px-3 ${
+            className={`flex min-h-[48px] flex-col items-center justify-center gap-1 px-3 ${
               active ? "font-medium text-brand" : "text-muted-foreground"
             }`}
           >
-            <Icon className="h-5 w-5" />
+            <Icon className="h-6 w-6" />
             <span className="text-xs">{label}</span>
           </button>
         ))}

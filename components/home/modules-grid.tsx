@@ -30,7 +30,7 @@ function BadgePill({
 }) {
   return (
     <span
-      className={`absolute rounded-full bg-[#2F6BFF] px-2 py-[2px] text-[10px] font-semibold text-white ${className}`}
+      className={`absolute rounded-full bg-[#2F6BFF] px-2 py-[1px] text-[10px] font-semibold text-white ${className}`}
     >
       {children}
     </span>
@@ -48,29 +48,33 @@ function ModuleTile({
   badge?: "Novo" | "Ofertas";
   href?: string;
 }) {
-  const className =
-    "block w-full rounded-2xl border border-black/5 bg-white px-3 py-4 shadow-sm";
+  const tileClassName =
+    "relative overflow-visible block w-full rounded-2xl border border-black/5 bg-white px-3 pt-3 pb-2.5 shadow-sm";
   const content = (
-    <div className="flex flex-col items-center gap-2">
-      <div className="relative shrink-0">
+    <>
+      {badge ? (
+        <BadgePill className="-top-2 -right-2">{badge}</BadgePill>
+      ) : null}
+      <div className="flex flex-col items-center gap-1.5">
         <Icon
-          className="h-[22px] w-[22px] text-[var(--color-brand)]"
+          className="h-[22px] w-[22px] shrink-0 text-[var(--color-brand)]"
           strokeWidth={2}
         />
-        {badge ? (
-          <BadgePill className="-right-1 -top-1 z-10">{badge}</BadgePill>
-        ) : null}
+        <span className="line-clamp-2 text-center text-[13px] leading-tight">
+          {label}
+        </span>
       </div>
-      <span className="line-clamp-2 text-center text-sm leading-tight">
-        {label}
-      </span>
-    </div>
+    </>
   );
   if (href) {
-    return <Link href={href} className={className}>{content}</Link>;
+    return (
+      <Link href={href} className={tileClassName}>
+        {content}
+      </Link>
+    );
   }
   return (
-    <button type="button" className={className}>
+    <button type="button" className={tileClassName}>
       {content}
     </button>
   );
